@@ -1,0 +1,36 @@
+---
+title: Welcome to Starlight
+description: Get started building your docs site with Starlight.
+template: splash
+hero:
+  tagline: Congrats on setting up a new Starlight project!
+  image:
+    file: ../../assets/houston.webp
+  actions:
+    - text: Example Guide
+      link: /welcome/01/
+      icon: right-arrow
+      variant: primary
+    - text: Read the Starlight docs
+      link: https://starlight.astro.build
+      icon: external
+---
+
+import { Card, CardGrid } from "@astrojs/starlight/components";
+
+## Next steps
+
+<CardGrid>
+  <Card title="Terminal Basic" icon="pencil">
+    Learn terminal basic commands. Starting [here](/terminal/01/).
+  </Card>
+  <Card title="JavaScript" icon="add-document">
+    JavaScript cheat sheets. Starting [here](/JavaScript/01/).
+  </Card>
+  <Card title="Configure your site" icon="setting">
+    Edit your `sidebar` and other config in `astro.config.mjs`.
+  </Card>
+  <Card title="Read the docs" icon="open-book">
+    Learn more in [the Starlight Docs](https://starlight.astro.build/).
+  </Card>
+</CardGrid>
