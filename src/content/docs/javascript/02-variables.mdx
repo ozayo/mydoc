@@ -1,0 +1,163 @@
+---
+title: Variables (Degiskenler)
+description: Js Variables.
+lastUpdated: 2023-11-19
+sidebar:
+  label: Variables (Degiskenler)
+  order: 2
+---
+
+import { Icon } from "@astrojs/starlight/components";
+
+Bir programlama dilinde değişkenler (Variables) veri değerlerini depolamak için kullanılır.
+
+JavaScript, değişkenleri bildirmek için `var`, `let` ve `const` anahtar kelimelerini kullanır.
+
+Değişkenlere değer atamak için eşittir `=` işareti kullanılır.
+
+```js
+// ornekler
+x = 5;
+y = 6;
+z = x + y;
+// var kullanimi
+var x = 5;
+var y = 6;
+var z = x + y;
+// let kullanimi
+let x = 5;
+let y = 6;
+let z = x + y;
+// const kullanimi
+const x = 5;
+const y = 6;
+const z = x + y;
+// karisik kullanimi
+const price1 = 5;
+const price2 = 6;
+let total = price1 + price2;
+```
+
+Bu 3 degisken disinda ayrica "otomatik" (Automatically) degisken tipi de vardir. Ancak basit hesaplamalar disinda cok kullanimi yoktur.
+Asagidaki ornekte js degiskenleri otomatik olarak atamaktadir;
+
+```js
+x = 5;
+y = 6;
+z = x + y;
+```
+
+:::tip[Bilmenizde fayda var?]
+`Var` anahtar kelimesi 1995'ten 2015'e kadar tüm JavaScript kodlarında kullanıldı.
+
+`Let` ve `const` anahtar kelimeleri 2015 yılında JavaScript'e eklendi.
+
+`Var` anahtar sözcüğü yalnızca eski tarayıcılar için yazılmış kodlarda kullanılmalıdır.
+:::
+
+## JavaScript Değişken (variable) Tanimlama
+
+Temel olarak `var`, `let` veya `const` anahtar kelimeleri ile bir JavaScript değişkeni (variable) olusturabiliriz.
+
+Ancak `var` anahtar kelimesini eski bir tarayici veya eski bir kod'da calismiyorsak kullanmamak en iyisidir.
+
+Detaylari asagida yazacagim ancak bilinmesi gereken en onemli konu;
+
+`const` anahtar kelimesini, atanan degeri degistirmeyecegimiz, yani hep sabit kalacak degerler icin kullanmak.
+`let` anahtar kelimisini ise genel kullanimda veya bu degeri degistirmek istedigimiz noktalarda kullanmak.
+
+Değişkenlere değer atamak için eşittir `=` işareti kullanılır.
+
+```js
+// degisken tanimlayalim.
+let isim = "Ozay"; // isim adinda bir degisken tanimladik. Artik isim cagrildiginda karsiligi "Ozay" olacak.
+let soyIsim = "Ozdemir";
+const basKent = "Ankara"; // degisken degistilemez
+
+console.log(isim + soyIsim + basKent); // Ciktisi "OzayOzdemirAnkara" olacaktir.
+
+// Peki ismi degistirmek istersek?
+isim = "Ahmet"; // isim adli degiskene "Ahmet" tanimdadik ve degeri degistirdik.
+// basKent degiskenini degistirmeye calisalim.
+basKent = "Istanbul"; // basKent degiskenini zaten tanimli hatasi alirsiniz.
+
+console.log(isim + soyIsim); // AhmetOzdemir (isim degisti)
+```
+
+[VIDEO: Degisken Tanimlama](https://youtu.be/iawB79wi8c0?feature=shared)
+
+## Let Kullanimi
+
+:::note
+
+1. `Let` ile tanımlanan değişkenler Yeniden Bildirilemez (Redeclared).
+2. `Let` ile tanımlanan değişkenler kullanımdan önce bildirilmelidir.
+3. `Let` ile tanımlanan değişkenler Block Scope kapsamina girer.
+   :::
+   Yukaridakileri ornekler ile aciklayalim.
+
+```js
+// 1 değişkenler Yeniden Bildirilemez
+let isim = "Ozay"; // isim adinda bir degisken tanimladik
+// asagidaki gibi kullanamayiz, yani ayni isimde bir degisken daha tanimlanamaz.
+let isim = "Ahmet"; // HATA! SyntaxError: Identifier 'isim' has already been declared.
+
+// 2 Degisken kullanimdan once bildirilmeli yani;
+// asagidaki siralama calismayacaktir
+console.log(merhaba); //ReferenceError: merhaba is not defined
+let merhaba = "Merhaba dunya";
+
+// 3 let ile tanimlanan degisken block scope kapsamina girer
+// { } arasina yazilmis her alan blok olarak tanimlanir.
+// eger bir let degisken bir blok icinde tanimlanmis ise blok disinda gosterilemez.
+// yani
+{
+  let blokTest = "Merhaba";
+  console.log(blokTest); // blok icinde calisir
+}
+console.log(blokTest); //ReferenceError: blokTest is not defined
+```
+
+**Madde 1 ile ilgili kavramlar kafa karistirici olabilir.**
+
+`let`, `const`, `var` degisken anahtar kelimeleridir,
+degisken yazdiktan sonra degiskene bir degisken ismi atariz orn: `let myName`
+deger ise `=` ifadesinden sonra yazdigimiz alan yani`let myName = "ozay";`
+
+Madde 1'de ayni isimde bir degiskeni tekrar olusturamayacagimiz anlatiliyor.
+Yoksa degeri degistirmemiz mumkun.
+Örnek:
+
+```js
+let myName = "Ozay";
+console.log(myName); // "Ozay"
+
+// "Ozay" degerini degistirelim
+myName = "Ahmet";
+console.log(myName); // artik myName degiskenimizin degeri "Ahmet" oldu.
+```
+
+### Let Syntax (Sozdizimi)
+
+Let soz dizimi (syntax) asagidaki gibidir;
+
+```js
+let name1;
+let name1 = value1;
+let name1 = value1, name2 = value2;
+let name1, name2 = value2;
+let name1 = value1, name2, /* …, */ nameN = valueN;
+```
+
+
+## Const Kullanimi
+
+Bilgi gelecek...
+
+## var, let and const Farklari
+
+|       | Scope | Redeclare | Reassign | Hoisted | Binds this |
+| ----- | ----- | --------- | -------- | ------- | ---------- |
+| var   | No    | Yes       | Yes      | Yes     | Yes        |
+| let   | Yes   | No        | Yes      | No      | No         |
+| const | Yes   | No        | No       | No      | No         |

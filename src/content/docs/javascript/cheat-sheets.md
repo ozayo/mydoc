@@ -7,9 +7,9 @@ sidebar:
   order: 5
 ---
 
-## Some Basic
+# Some Basic
 
-### Comments
+## Comments
 
 There are two types of comments: // this is a single line comment /_ this is a multiple line comment when you have to write a lot of things _/
 
@@ -25,7 +25,7 @@ let fullname = "Doe";
 let age = 35;
 ```
 
-### Variables
+## Variables
 
 Variables – values that hold data to perform calculations or other operations
 
@@ -33,7 +33,7 @@ Variables – values that hold data to perform calculations or other operations
 - **const** – constant value i.e. cannot be reassigned
 - **let** – can be used only within the block its declared, can be reassigned
 
-### Data types
+## Data types
 
 Can be of different types
 
@@ -45,9 +45,19 @@ Can be of different types
 - Operations, eg. `var sum = 20 + 20`
 - Objects, eg. `var student =` Contains single object of various data types
 
-### Arrays
+## Arrays
 
-Arrays group similar kinds of data together. Eg, `var subjectlist = [“math”, “science”, “history”, “computer”];` Arrays can perform the following functions:
+Arrays group similar kinds of data together. Eg, `var subjectlist = [“math”, “science”, “history”, “computer”];`
+
+More info: [https://www.w3schools.com/js/js_arrays.asp](https://www.w3schools.com/js/js_arrays.asp)
+
+Arrays can perform the following functions:
+
+More info:
+
+[https://www.w3schools.com/js/js_array_methods.asp](https://www.w3schools.com/js/js_array_methods.asp)
+
+[https://www.w3schools.com/jsref/jsref_obj_array.asp](https://www.w3schools.com/jsref/jsref_obj_array.asp)
 
 | Functions     | Description                                                   |
 | ------------- | ------------------------------------------------------------- |
@@ -66,46 +76,46 @@ Arrays group similar kinds of data together. Eg, `var subjectlist = [“math”,
 | push()        | Add new element to the array as the last one                  |
 | tostring()    | Prints the string value of the elements of the array          |
 
-### Operators
+## Operators
 
-#### Basic
+### Basic
 
-- Addition (+)
-- Subtraction (-)
-- Multiply (\*)
-- Divide (/)
-- Remainder (%)
-- Increment (++)
-- Decrement (--)
-- Execute brackets first (…)
+- Addition `+`
+- Subtraction `-`
+- Multiply `*`
+- Divide `/`
+- Remainder `%`
+- Increment `++`
+- Decrement `--`
+- Execute brackets first `…`
 
-#### Logical
+### Logical
 
-- And (&&)
-- Or (||)
-- Not (|)
+- And `&&`
+- Or `||`
+- Not `|`
 
-#### Comparison
+### Comparison
 
-- Equal to (==)
-- Equal value and type (===)
-- Not equal (!=)
-- Not equal value or type (!==)
-- Greater than (>)
-- Less than (<)
-- Greater than or equal to (>=)
-- Less than or equal to (<=)
-- Ternary operator (?)
+- Equal to `==`
+- Equal value and type `===`
+- Not equal `!=`
+- Not equal value or type `!==`
+- Greater than `>`
+- Less than `<`
+- Greater than or equal to `>=`
+- Less than or equal to `<=`
+- Ternary operator `?`
 
-#### Bitwise
+### Bitwise
 
-- AND (&)
-- OR (|)
-- NOT (~)
-- XOR (^)
-- Left shift (<<)
-- Right shift (>>)
-- Zero fill right shift (>>>)
+- AND `&`
+- OR `|`
+- NOT `~`
+- XOR `^`
+- Left shift `<<`
+- Right shift `>>`
+- Zero fill right shift `>>>`
 
 continue later from here:
 https://hackr.io/blog/javascript-cheat-sheet#download-javascript-cheat-sheet

@@ -6,6 +6,12 @@ export default defineConfig({
   integrations: [
     starlight({
       title: "My Docs",
+      locales: {
+        root: {
+          label: "Turkce",
+          lang: "tr-TR",
+        },
+      },
       social: {
         github: "https://github.com/withastro/starlight",
       },
@@ -56,7 +62,10 @@ export default defineConfig({
             {
               label: "NPM",
               collapsed: true,
-              items: [{ label: "NPM", link: "/tools/npm/01/" }],
+              items: [
+                { label: "NPM", link: "/tools/npm/01/" },
+                { label: "Npm Npx Farki", link: "/tools/npm/02/" },
+              ],
             },
             {
               label: "Markdown",
