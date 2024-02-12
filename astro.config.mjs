@@ -72,6 +72,11 @@ export default defineConfig({
               collapsed: true,
               items: [{ label: "Markdown", link: "/tools/markdown/01/" }],
             },
+            {
+              label: "Vite",
+              collapsed: true,
+              items: [{ label: "Vite", link: "/tools/vite/01/" }],
+            },
           ],
         },
         {
@@ -81,6 +86,10 @@ export default defineConfig({
         {
           label: "CSS",
           autogenerate: { directory: "css" },
+        },
+        {
+          label: "React JS",
+          autogenerate: { directory: "react" },
         },
         // {
         //   label: "OzayJS",
