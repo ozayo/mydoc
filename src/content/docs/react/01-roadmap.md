@@ -1,9 +1,10 @@
 ---
 title: React Roadmap
 description: React roadmap
+slug: react-yol-haritasi
 sidebar:
   label: React Roadmap
-  order: 3
+  order: 1
 ---
 
 ## React Yol Haritasi

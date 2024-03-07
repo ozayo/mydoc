@@ -1,0 +1,33 @@
+---
+title: Props
+description: React propslar.
+slug: react-props
+sidebar:
+  label: Props
+  order: 6
+---
+
+Props, React'te bileşenler arasında veri aktarımı yapmamızı sağlayan bir yapıdır.
+Bir ana bileşenden alt bileşenlere veri göndermek için kullanılır ve salt okunur (read-only) yani değiştirilemezler.
+
+## Props'un Özellikleri:
+
+- Nesne Olarak Gönderilir: Props, bir nesne olarak gönderilir. Bu nesne, key-value çiftlerinden oluşur.
+- Salt Okunur: Props, sadece ana bileşende değiştirilebilir. Alt bileşenlerde props'u değiştirmeye çalışırsanız, hata alırsınız.
+- Tek Yönlü Akış: Veriler ana bileşenden alt bileşenlere doğru tek yönlü olarak akar. Alt bileşenler, ana bileşendeki verileri değiştiremez.
+
+## Props'u Kullanmanın Faydaları:
+
+- Kodun Tekrar Kullanılabilirliğini Artırır: Props, bileşenleri daha modüler ve tekrar kullanılabilir hale getirir.
+- Veri Akışını Kolaylaştırır: Props, bileşenler arasında veri akışını organize ve kolay hale getirir.
+- Kodun Bakımı Kolaylaştırır: Props, kodun daha okunabilir ve bakımı kolay hale getirir.
+
+## Props Kullanım Örnekleri:
+
+- Bir kullanıcı adı ve profil resmi gibi bilgileri bir başlık bileşenine göndermek için props kullanılabilir.
+- Bir ürün listesi gibi verileri bir ürün kartı bileşenine göndermek için props kullanılabilir.
+- Bir butonun rengini veya metnini props ile dinamik olarak değiştirmek için kullanılabilir.
+
+<a href="https://www.google.com" target="_blank">
+  Test{" "}
+</a>

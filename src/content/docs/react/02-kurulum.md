@@ -1,9 +1,10 @@
 ---
 title: React JS
 description: React Kurulumu
+slug: react-kurulum
 sidebar:
   label: React Kurulum
-  order: 1
+  order: 2
 ---
 
 ## React Kurulum
@@ -12,7 +13,7 @@ React kendi web sitesinde de bahsettigi uzere react kurulumunu bir framework ile
 
 Bunlarin en basinda bir hayli de populer olan Next Js gelmekte.
 
-Ancak yinede React ogrenme surecinde herhangi bir framework ile kullanmadan React kurmak icin en iyi yol **Vite JS** kullanmak. Vite ile ilgili bilgiyi [Burada](/tools/vite/01/) gorebilirsiniz.
+Ancak yinede React ogrenme surecinde herhangi bir framework ile kullanmadan React kurmak icin en iyi yol **Vite JS** kullanmak. Vite ile ilgili yazdığım notu [Burada](/tools/vite/01/) okuyabilirsiniz.
 
 Vite kurulum asamasinda size nasil bir kurulum yapmak isteyeceginizi sorarak ihtiyaciniza gore bir kurulum yapmanizi saglayacaktir.
 

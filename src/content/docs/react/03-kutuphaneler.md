@@ -1,23 +1,25 @@
 ---
 title: React Bilesen ve Css Kutuphaneleri
 description: React Bilesen ve Css Kutuphaneleri
+slug: react-bilesen-ve-css-kutuphaneleri
 sidebar:
   label: Bilesen & CSS Kutuphaneleri
-  order: 2
+  order: 3
 ---
 
-React ile birlikte cesitli CSS ve Bilesen kutuphaneleri kullanmak mumkundur. Bu kutuphaneler uygulamanin daha hizli hazirlanmasina yardimci olmaktadirlar.
+React ile birlikte çeşitli CSS ve Bileşen (component) kütüphaneleri kullanmak mümkündür. Bu kütüphaneler ile uygulamanızı daha hızlı hazırlayabilirsiniz.
 
 Asagida en cok kullanilan Bilesen (Component) ve CSS kutuphanelerini bulabilirsiniz.
 
-## Bilesen & CSS Kutuphaneleri
+## Bileşen & CSS Kütüphaneleri
 
-Bilesenler (Components) react projelerinde en onemli kisimdir. React'da hemen hemen her bir icerik bir bilesen ile hazirlanir.
-Tum bu bilesenleri kendimiz hazirlayabilecegimiz gibi hazir kutuphaneler kullanarak projemizi daha hizli bitirmek mumkundur.
+Bileşenler (Components) react projelerinde en önemli kısmını oluştururlar. React'da hemen hemen her bir icerik bir bileşen ile hazırlanır.
+Tüm bu bileşenleri kendimiz yazabilir veya hazır kütüphaneler kullanarak projemizi daha hızlı bitirebiliriz.
 
-CSS kutuphaneleri (Tailwind, Bootstrap vb.) ise kendi Css'lerimizi yazmak yerine hazir css'leri kullanmak icin yaratilmislardir.
+CSS kütüphaneleri (Tailwind, Bootstrap vb.) ise kendi Css'lerimizi yazmak yerine hazır css'leri kullanmak icin yaratılmışlardır.
 
-Bilesen ve CSS kutuphanerini karistirmamak gerek. Diger taraftan asagidaki bazi bilesenler kendi Css'lerini kullandiklari gibi ayrica Tailwind, Bootstrap ve benzeri css kutuphaneleri ile birlikte de kullanilabilirler.
+Bilesen ve CSS kutuphanerini karıstırmamak gerekö adı üzerinde biri size hazır bileşenler verirken diğeri hazır CSS ler verir.
+Diger taraftan asagidaki bazi kütüphaneler bileşenler ile birlikte kendi CSS kütüphanelerini kullanırlar veya 3.taraf CSS kütüphanelerini (Tailwind, Bootstrap gibi) eklemenize ve birlikte çalısmasına izin verirler.
 
 ### Shadcn UI
 
@@ -61,13 +63,19 @@ https://tailwindcss.com/
 
 ## React Npm Paketleri
 
-Cesitli amaclar icin React ile kullanacaginiz bazi npm paketleri listesi:
+Çeşitli amaçlar için geliştirilmiş ve React ile kullanabileceğiniz bazi npm paketleri listesi:
 
 - https://react-icons.github.io/react-icons/
 - https://react-day-picker.js.org/
 - https://recharts.org/
 - https://react-table-library.com/
 
-### Kaynaklar
+## React awesome listeleri
+
+- https://github.com/enaqx/awesome-react
+- https://github.com/brillout/awesome-react-components
+- https://reactjsexample.com/
+
+## Kaynaklar
 
 - https://www.robinwieruch.de/react-libraries/

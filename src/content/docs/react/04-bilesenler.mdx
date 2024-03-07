@@ -1,12 +1,21 @@
 ---
 title: React Components (Bilesenler)
 description: React Bilesenler (components) hakkinda bilgi.
+slug: react-component
 sidebar:
   label: Components
-  order: 5
+  order: 4
 ---
 
+import { Tabs, TabItem } from "@astrojs/starlight/components";
+
 React elementler ve componentler, React'te UI oluşturmak için kullanılan iki temel yapıdır. Elementler, UI'nin temel yapı taşlarını oluştururken, component'ler bu yapı taşlarını bir araya getirerek daha karmaşık UI'ler oluşturmaya yardımcı olur.
+
+Bu sayfada bileşenlerin ne olduğu ve nasıl kullanıldığı hakkında temel bilgi verilecektir.
+
+:::note
+Ancak bileşenleri daha iyi kullanabilmek için sonraki bölümlerde anlatılan JSX, Props, State, Conditional rendering ve Composition gibi kavramların ne olduğunu iyi anlamamız gerekiyor.
+:::
 
 ## React Element Nedir?
 
@@ -14,7 +23,7 @@ React elementler, React'te UI'yi oluşturmak için kullanılan temel yapılardı
 
 JSX Örneği:
 
-```
+```js
 const element = <h1>Merhaba, Dünya!</h1>;
 ```
 
@@ -63,8 +72,8 @@ Bir sınıf tabanlı component oluşturmak için aşağıdaki adımları izleyeb
 
 **Örnek:**
 
-```
-import React, { Component } from 'react';
+```js
+import React, { Component } from "react";
 
 class MyComponent extends Component {
   render() {
@@ -91,8 +100,8 @@ Fonksiyon tabanlı component'ler, JavaScript fonksiyonlarıdır. Bir fonksiyon t
 
 **Örnek:**
 
-```
-import React from 'react';
+```js
+import React from "react";
 
 const MyComponent = () => {
   return (
@@ -132,6 +141,76 @@ React component'leri kullanmanın birçok avantajı vardır:
 - **Yönetilebilirlik:** Component'ler, bir uygulamayı daha küçük, yönetilebilir parçalara ayırmaya yardımcı olur. Bu da kodun daha okunabilir ve anlaşılır olmasını sağlar.
 - **Bakım Kolaylığı:** Component'ler, kodun daha kolay test edilmesini ve hata ayıklanmasını sağlar.
 - **Performans:** Component'ler, UI'nin sadece güncellenen parçalarının yeniden oluşturulmasını sağlayarak performansı optimize etmeye yardımcı olabilir.
+
+## Bilesen import & Export
+
+Bileşenler aynı kod bloğu içinde yazılıp çağrılabilrler. Ancak en yaygın kullanımı bileşenleri `components` klasörü içinde oluşturup daha sonra kullanacağımız yerlerde çağırmaktır (import).
+
+Bu konu ilerleyen bölümlerde daha detaylı anlatılacaktır. Şimdilik aşadaki örnek yeterli olacaktır.
+
+<Tabs>
+  <TabItem label="App.js">
+  ```js
+  import Badge from './Badge.js';
+
+export default function App() {
+  return (
+    <Badge />
+  );
+}
+  ```
+  </TabItem>
+  <TabItem label="Badge.js">
+  ```js
+  const Badge = ({ size = "base", color = "primary", icon, children }) => {
+  return (
+    <div className="inline-block">
+      <span className={`badge ${size} ${color}`}>
+        {icon && <span className="badge-icon">{icon}</span>}
+        <span className="badge-text">{children}</span>
+      </span>
+    </div>
+  );
+};
+
+export default Badge;
+```
+  </TabItem>
+  <TabItem label="SingleApp.js">
+  ```js
+  // Bu ornekte ayni kod icinde olusturdugumuz bileseni yine ayni yerde kullanabiliyoruz.
+  function Profile() {
+  return (
+    <img
+      src="https://i.imgur.com/MK3eW3As.jpg"
+      alt="Katherine Johnson"
+    />
+  );
+}
+
+export default function Gallery() {
+  return (
+    <section>
+      <h1>Amazing scientists</h1>
+      <Profile />
+      <Profile />
+      <Profile />
+    </section>
+  );
+}
+  ```
+  </TabItem>
+</Tabs>
+
+## Bilmemiz gerekenler
+
+Bileşenleri daha iyi öğrenebilmek ve daha verimli kullanabilmek için devam eden sayfalardaki konuları iyi anlamak önemli.
+
+Bunlar:
+
+- JSX
+- Props
+- Conditional Rendering
 
 ## Kaynaklar:
 

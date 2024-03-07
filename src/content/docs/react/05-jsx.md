@@ -1,9 +1,10 @@
 ---
 title: React JSX
 description: JSX nedir nasil kullanilir.
+slug: jsx-nedir
 sidebar:
   label: JSX
-  order: 4
+  order: 5
 ---
 
 ## JSX Nedir?
@@ -20,7 +21,7 @@ JSX, JavaScript kodunun içine HTML benzeri kod yazmamızı sağlayan bir sözdi
 
 **JSX'te HTML elementleri kullanın:**
 
-```
+```js
 const element = (
   <div>
     <h1>Merhaba, Dünya!</h1>
@@ -31,33 +32,27 @@ const element = (
 
 **JSX'te JavaScript ifadeleri kullanın:**
 
-```
-const name = 'John Doe';
+```js
+const name = "John Doe";
 
-const element = (
-  <h1>Merhaba, {name}!</h1>
-);
+const element = <h1>Merhaba, {name}!</h1>;
 ```
 
 JSX’te süslü parantezler arasına dilediğiniz herhangi bir JavaScript ifadesini yazabilirsiniz. Örneğin, `2 + 2`, `user.firstName`, veya `formatName(user)` gibi JavaScript ifadelerini kullanabilirsiniz.
 
 Aşağıdaki örnekte, bir JavaScript fonksiyonun çağrısının sonucu JSX içerisine gömülmektedir. Yani `formatName(user)`, `<h1>` elemanının içerisine konulmaktadır.
 
-```
+```js
 function formatName(user) {
-  return user.firstName + ' ' + user.lastName;
+  return user.firstName + " " + user.lastName;
 }
 
 const user = {
-  firstName: 'Harper',
-  lastName: 'Perez'
+  firstName: "Harper",
+  lastName: "Perez",
 };
 
-const element = (
-  <h1>
-    Hello, {formatName(user)}!
-  </h1>
-);
+const element = <h1>Hello, {formatName(user)}!</h1>;
 ```
 
 ## JSX Kuralları
@@ -66,14 +61,10 @@ const element = (
 
 Bir bileşenden birden fazla öğe döndürmek için bunları tek bir üst etiketle sarın. Örneğin, bir `<div>` kullanabilirsiniz:
 
-```
+```html
 <div>
   <h1>Hedy Lamarr's Todos</h1>
-  <img
-    src="https://i.imgur.com/yXOvdOSs.jpg"
-    alt="Hedy Lamarr"
-    class="photo"
-  >
+  <img src="https://i.imgur.com/yXOvdOSs.jpg" alt="Hedy Lamarr" class="photo" />
   <ul>
     ...
   </ul>
@@ -82,7 +73,7 @@ Bir bileşenden birden fazla öğe döndürmek için bunları tek bir üst etike
 
 Kodunuza fazladan bir `<div>` eklemek istemiyorsanız bunun yerine `<>` ve `</>` yazabilirsiniz:
 
-```
+```html
 <>
   <h1>Hedy Lamarr's Todos</h1>
   <img
@@ -100,7 +91,7 @@ Kodunuza fazladan bir `<div>` eklemek istemiyorsanız bunun yerine `<>` ve `</>`
 
 JSX, etiketlerin açıkça kapatılmasını gerektirir: `<img>` gibi kendi kendine kapanan etiketler `<img />` haline gelmeli ve `<li>portakallar` gibi sarma etiketleri `<li>portakallar</li>` olarak yazılmalıdır.
 
-```
+```html
 <>
   <img
     src="https://i.imgur.com/yXOvdOSs.jpg"
@@ -148,19 +139,17 @@ JSX'te, HTML elementleri ile birlikte JavaScript ifadelerini de kullanabilirsini
 
 Örnekler:
 
-```
-const name = 'John Doe';
+```js
+const name = "John Doe";
 
-const element = (
-  <h1>Merhaba, {name}!</h1>
-);
+const element = <h1>Merhaba, {name}!</h1>;
 ```
 
 Bu kodda, `name` değişkeninin değeri `<h1>` etiketinin içine yerleştirilir.
 
 Mevcut zamanı gösteren bir saat:
 
-```
+```js
 const time = new Date().toLocaleTimeString();
 
 const element = (
@@ -172,7 +161,7 @@ const element = (
 
 Bir sayıyı iki ile çarpan bir fonksiyon:
 
-```
+```js
 function double(number) {
   return number * 2;
 }
