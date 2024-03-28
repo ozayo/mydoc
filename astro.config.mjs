@@ -32,32 +32,36 @@ export default defineConfig({
             {
               label: "Visual Studio Code",
               collapsed: true,
-              items: [{ label: "VsCode Nedir", link: "/tools/vscode/01/" }],
+              items: [
+                { label: "VsCode Nedir", link: "/tools/vscode/01/" },
+                { label: "macOS için VS Code kısayolları", link: "/tools/vscode/02/" }
+              ],
             },
             // terminal
             {
               label: "Terminal",
               collapsed: true,
               items: [
-                { label: "What is the terminal?", link: "/tools/terminal/01/" },
-                { label: "Terminal commands", link: "/tools/terminal/02/" },
-                {
-                  label: "Terminal commands list",
-                  link: "/tools/terminal/03/",
-                },
+                { label: "Terminal Nedir?", link: "/tools/terminal/01/" },
+                { label: "Terminal Komutları", link: "/tools/terminal/02/" },
               ],
             },
             //Git
             {
               label: "Git",
               collapsed: true,
-              items: [{ label: "What is Git", link: "/tools/git/01/" }],
+              items: [
+                { label: "Git Nedir", link: "/tools/git/01/" },
+                { label: ".gitignore", link: "/tools/git/02/" },
+                { label: "Açıklamalı git komutları", link: "/tools/git/03/" },
+                { label: "Komut tablosu", link: "/tools/git/04/" },
+              ],
             },
             //Git hub
             {
               label: "GitHub",
               collapsed: true,
-              items: [{ label: "What is GitHub", link: "/tools/github/01/" }],
+              items: [{ label: "GitHub nedir?", link: "/tools/github/01/" }],
             },
             {
               label: "NPM",
@@ -65,6 +69,7 @@ export default defineConfig({
               items: [
                 { label: "NPM", link: "/tools/npm/01/" },
                 { label: "Npm Npx Farki", link: "/tools/npm/02/" },
+                { label: "Npm komutları", link: "/tools/npm/03/" },
               ],
             },
             {
@@ -82,14 +87,22 @@ export default defineConfig({
         {
           label: "JavaScript",
           autogenerate: { directory: "javascript" },
+          badge: { text: 'Devam ediyor', variant: 'caution' },
         },
         {
           label: "CSS",
           autogenerate: { directory: "css" },
+          badge: { text: 'Devam ediyor', variant: 'caution' },
         },
         {
           label: "React JS",
           autogenerate: { directory: "react" },
+          badge: { text: 'Devam ediyor', variant: 'caution' },
+        },
+        {
+          label: "Next JS",
+          autogenerate: { directory: "nextjs" },
+          badge: { text: 'Devam ediyor', variant: 'caution' },
         },
         // {
         //   label: "OzayJS",
