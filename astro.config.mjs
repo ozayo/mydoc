@@ -13,7 +13,9 @@ export default defineConfig({
         },
       },
       social: {
-        github: "https://github.com/withastro/starlight",
+        github: "https://github.com/ozayo/mydoc",
+        twitter: 'https://twitter.com/ozayozdemir',
+        linkedin: 'https://www.linkedin.com/in/ozay-ozdemir/',
       },
       customCss: ["./src/styles/custom.css"],
       sidebar: [
