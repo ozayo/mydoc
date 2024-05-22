@@ -84,6 +84,11 @@ export default defineConfig({
               collapsed: true,
               items: [{ label: "Vite", link: "/tools/vite/01/" }],
             },
+            {
+              label: "Docker",
+              collapsed: true,
+              items: [{ label: "Docker nedir?", link: "/tools/docker/01/" }],
+            },
           ],
         },
         {
@@ -104,6 +109,11 @@ export default defineConfig({
         {
           label: "Next JS",
           autogenerate: { directory: "nextjs" },
+          badge: { text: 'Devam ediyor', variant: 'caution' },
+        },
+        {
+          label: "ReactNative",
+          autogenerate: { directory: "reactnative" },
           badge: { text: 'Devam ediyor', variant: 'caution' },
         },
         // {
