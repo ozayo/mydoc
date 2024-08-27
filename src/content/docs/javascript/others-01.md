@@ -3,7 +3,7 @@ title: use strict
 description: Modern mod, "use strict"
 sidebar:
   label: Use strict
-  order: 3
+  order: 4
 ---
 
 # Modern mod, "use strict"

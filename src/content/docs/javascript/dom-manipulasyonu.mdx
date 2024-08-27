@@ -1,0 +1,92 @@
+---
+title: JS'de Dom Manipulasyonu
+description: JavaScript'te DOM manipülasyonu nedir,
+sidebar:
+  label: Dom Manipulasyonu
+  order: 5
+---
+
+DOM manipülasyonu, JavaScript'in web sayfalarını dinamik ve etkileşimli hale getirme yeteneğinin temelini oluşturur. Modern web uygulamalarının çoğunda DOM manipülasyonu yaygın olarak kullanılır.
+
+## DOM Nedir?
+
+- DOM (Document Object Model), bir web sayfasının yapısını, içeriğini ve stilini temsil eden bir ağaç yapısıdır.
+- Tarayıcı, bir HTML dosyasını yüklediğinde, bu dosyayı bir DOM ağacına dönüştürür.
+- Bu ağaçtaki her bir öğe (örneğin, bir başlık, bir paragraf, bir resim), bir "düğüm" olarak adlandırılır.
+- DOM, bu düğümlere JavaScript aracılığıyla erişmenizi ve onları değiştirmenizi sağlar.
+
+
+![Dom tree!](/src/assets/dom-tree.png "Dom tree")
+
+
+
+## DOM Manipülasyonu Nedir?
+
+- DOM manipülasyonu, JavaScript kullanarak web sayfasının içeriğini, yapısını veya stilini dinamik olarak değiştirme işlemidir.
+- Bu, sayfanın yüklenmesinden sonra bile yapılabilir, bu da web sayfalarını daha etkileşimli ve dinamik hale getirir.
+
+### DOM Manipülasyonu ile Neler Yapabilirsiniz?
+
+- İçerik ekleme veya değiştirme:
+  - Yeni öğeler (örneğin, paragraflar, resimler, listeler) oluşturabilir ve bunları sayfaya ekleyebilirsiniz.
+  - Mevcut öğelerin içeriğini (örneğin, bir başlığın metni) değiştirebilirsiniz.
+- Öğeleri kaldırma:
+  - Sayfadaki öğeleri tamamen kaldırabilirsiniz.
+- Stilleri değiştirme:
+  - Öğelerin stillerini (örneğin, renk, boyut, konum) değiştirebilirsiniz.
+- Öğe özelliklerini değiştirme:
+  - Bir resmin kaynağını veya bir bağlantının hedefini değiştirebilirsiniz.
+- Olaylara tepki verme:
+  - Kullanıcıların tıklama, fare üzerine gelme, form gönderme gibi eylemlerine tepki verecek şekilde web sayfalarını programlayabilirsiniz.
+
+### DOM Manipülasyonu Örnekleri:
+
+- Bir butona tıklandığında yeni bir paragraf eklemek.
+- Bir metin kutusundaki değeri alıp bir başlıkta görüntülemek.
+- Kullanıcının faresi bir resmin üzerine geldiğinde resmin boyutunu büyütmek.
+- Bir açılır menü oluşturmak ve kullanıcı tıkladığında menü öğelerini göstermek/gizlemek.
+
+### DOM Manipülasyonu İçin Temel JavaScript Metodları ve Özellikleri
+- `getElementById():` ID'si belirtilen bir öğeyi seçmek için.
+- `getElementsByClassName():` Belirli bir sınıf adına sahip tüm öğeleri seçmek için.
+- `getElementsByTagName():` Belirli bir etiket adına sahip tüm öğeleri seçmek için.
+- `querySelector():` CSS seçicisi kullanarak bir öğeyi seçmek için.
+- `querySelectorAll():` CSS seçicisi kullanarak birden fazla öğeyi seçmek için.
+- `innerHTML:` Bir öğenin HTML içeriğini almak veya ayarlamak için.
+- `textContent:` Bir öğenin metin içeriğini almak veya ayarlamak için.
+- `style:` Bir öğenin stil özelliklerini almak veya ayarlamak için.
+- `setAttribute():` Bir öğenin bir özelliğini ayarlamak için.
+- `getAttribute():` Bir öğenin bir özelliğini almak için.
+- `appendChild():` Bir öğeyi başka bir öğenin çocuğu olarak eklemek için.
+- `removeChild():` Bir öğeyi bir üst öğeden kaldırmak için.
+- `addEventListener():` Bir öğeye bir olay dinleyicisi eklemek için (örneğin, bir butona tıklama olayı için bir işlev atamak).
+
+
+### DOM Programlama Arayüzü
+
+HTML DOM'a JavaScript (ve diğer programlama dilleri) ile erişilebilir. DOM'da tüm HTML elementleri `objects` olarak tanımlanır.
+
+Programlama arayüzü, her bir object'in `properties` ve `methods`'larından oluşur.   
+
+Bir `property`, alabileceğiniz veya ayarlayabileceğiniz bir değerdir (örneğin bir HTML elementinin içeriğini değiştirmek gibi).
+
+Bir `method`, yapabileceğiniz bir eylemdir (örneğin bir HTML elementini eklemek veya silmek gibi).
+
+**Örnek**
+
+Aşağıdaki örnek, `id="demo"` olan `<p>` elementinin içeriğini `innerHTML` değiştirir:
+
+```js
+<html>
+<body>
+
+<p id="demo"></p>
+
+<script>
+document.getElementById("demo").innerHTML = "Hello World!";
+</script>
+
+</body>
+</html>
+```
+Yukarıdaki örnekte, `getElementById` bir `method`, `innerHTML` ise bir `property`'dir.

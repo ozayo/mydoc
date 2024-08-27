@@ -4,7 +4,7 @@ description: React Native
 
 slug: reactnative-baslangic
 sidebar:
-  label: React Native
+  label: React Native Giriş
   order: 1
 ---
 
@@ -25,6 +25,8 @@ https://expo.dev/ ve https://docs.expo.dev/
 https://www.nativewind.dev/
 
 https://reactnavigation.org/
+
+https://www.yogalayout.dev/
 
 Component Kutuphaneleri:
 
@@ -59,4 +61,7 @@ ile projemizi calistirabiliriz.
 Expo Go app uygulamasini cep telefonunuza indirin. Bilgisayarinizin ve telefonunuz ayni wifi'ye bagli olmasi gerektigini unutmayin.
 
 Projenizi calitirdiginizda terminalinde bir QR code goreceksiniz, indirdiginiz Expo Go uygulamasini acin ve bu QR code'u okutun. Simdi projenizi canli olarak cep telefonunuzda aninda gorebilirsiniz.
+
+Yukleme ve daha fazla bilgi icin:
+https://expo.dev/go
 

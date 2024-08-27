@@ -92,6 +92,11 @@ export default defineConfig({
           ],
         },
         {
+          label: "Kavramlar",
+          autogenerate: { directory: "sozluk" },
+          badge: { text: 'Devam ediyor', variant: 'caution' },
+        },
+        {
           label: "JavaScript",
           autogenerate: { directory: "javascript" },
           badge: { text: 'Devam ediyor', variant: 'caution' },
