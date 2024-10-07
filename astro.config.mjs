@@ -57,6 +57,7 @@ export default defineConfig({
                 { label: ".gitignore", link: "/tools/git/02/" },
                 { label: "Açıklamalı git komutları", link: "/tools/git/03/" },
                 { label: "Komut tablosu", link: "/tools/git/04/" },
+                { label: "Git Rebase", link: "/tools/git/05/" },
               ],
             },
             //Git hub
