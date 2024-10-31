@@ -103,6 +103,10 @@ export default defineConfig({
           badge: { text: 'Devam ediyor', variant: 'caution' },
         },
         {
+          label: "TypeScript",
+          autogenerate: { directory: "typescript" },
+        },
+        {
           label: "CSS",
           autogenerate: { directory: "css" },
           badge: { text: 'Devam ediyor', variant: 'caution' },
