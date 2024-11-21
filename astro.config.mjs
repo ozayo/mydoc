@@ -126,6 +126,25 @@ export default defineConfig({
           autogenerate: { directory: "reactnative" },
           badge: { text: 'Devam ediyor', variant: 'caution' },
         },
+        {
+          label: "Databases",
+          collapsed: false,
+          items: [
+            // a nested group links
+            //postgres
+            {
+              label: "PostgreSQL",
+              collapsed: true,
+              autogenerate: { directory: "postgres" },
+            },
+            // mysql
+            // {
+            //   label: "MySQL",
+            //   collapsed: true,
+            //   autogenerate: { directory: "mysql" },
+            // },
+          ],
+        },
         // {
         //   label: "OzayJS",
         //   autogenerate: { directory: "ozayjavascript" },
