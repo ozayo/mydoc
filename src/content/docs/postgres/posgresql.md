@@ -122,6 +122,15 @@ pg_dump -U root -p 5433 strapi > strapi_backup.sql
 psql -U root -p 5433 strapi < strapi_backup.sql
 ```
 
+Yedekleme ve geri yukleme ile ilgili bazi kaynaklar:
+
+How to backup and restore a postgres database:
+https://tembo.io/docs/getting-started/postgres_guides/how-to-backup-and-restore-a-postgres-database
+
+pg_dump:
+https://www.postgresql.org/docs/current/app-pgdump.html
+
+
 ## PostgreSQL ile İlgili Genel Tavsiyeler
 1. PostgreSQL arka planda çalışıyorsa genellikle bir müdahale gerekmez. Ancak sistemde yoğun kaynak kullanımı varsa servis kapatılabilir.
 2. Eğer PostgreSQL’i her zaman açık tutmak istemiyorsanız, yalnızca gerektiğinde başlatmak için `brew services start` komutunu kullanabilirsiniz.
