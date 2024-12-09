@@ -59,6 +59,25 @@ psql -U root -p 5433
 - `-U root`: PostgreSQL kullanıcısı (kendi kullanıcı adınız farklı olabilir).
 - `-p 5433`: PostgreSQL’in kullandığı port (5432 dışında bir port kullandıysanız bunu belirtin).
 
+**veya;**
+
+```bash
+psql -h 127.0.0.1 -p 5433 -d dbname -U user
+```
+
+Bu komut, PostgreSQL veritabanına komut satırı üzerinden bağlanmak için kullanılan psql aracını çalıştırır.  Komutun her bir parçası şunları ifade eder:
+
+- `psql`: PostgreSQL'in etkileşimli terminal istemcisidir. Veritabanına bağlanmanızı ve SQL sorguları çalıştırmanızı sağlar.
+
+- `-h 127.0.0.1`: Veritabanı sunucusunun bulunduğu host adresini belirtir. 127.0.0.1 "localhost" anlamına gelir ve kendi bilgisayarınızdaki sunucuya bağlanacağınızı ifade eder.
+
+- `-p 5433`: Bağlanılacak port numarasını belirtir. PostgreSQL varsayılan olarak 5432 portunu kullanır, ancak sizin durumunuzda Strapi 5433 portunu kullanacak şekilde yapılandırılmış.
+
+- `-d dbname`: Bağlanılacak veritabanının adını belirtir. dbname verilerinizin depolandığı "dbname" adlı veritabanına bağlanacaksınız.
+
+- `-U root`: Veritabanına bağlanırken kullanılacak kullanıcı adını belirtir. Strapi'nin veritabanı ayarlarına göre, kullanıcı adı "root" olarak belirlenmiş
+
+
 ### Veritabanları Listesi Görüntüleme:
 PostgreSQL içinde oturum açtıktan sonra:
 
