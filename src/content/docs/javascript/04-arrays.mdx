@@ -1,0 +1,262 @@
+---
+title: JS Arrays (Dizeler)
+description: Js de arrays (dizeler) hakkinda bilgi
+lastUpdated: 2024-12-22
+sidebar:
+  label: Arrays (Dizeler)
+  order: 4
+---
+
+Arrays (dizeler) çok önemli bir konu. Array methodları hem JS yazarken hem de JS tabanlı fraaframework ler kullanırken çok karşılaşacağımız ve kullanacağımız methodlar. Bu yüzden iyi anlamak çok önemli.
+
+Asagidakiler JavaScript'teki en yaygın kullanılan array metotlarıdır. Bunları anlamak ve kullanmak, JavaScript programlamasındaki veri işleme yeteneklerinizi önemli ölçüde geliştirecektir.
+
+
+# Arrays (Diziler) Nedir?
+
+JavaScript'te bir dizi (array), tek bir değişken adı altında birden çok değeri depolamanıza olanak tanıyan özel bir değişken türüdür. Farklı veri türlerinden oluşan bir koleksiyonu (sayılar, dizeler, nesneler ve hatta diğer diziler) depolamak için kullanabileceğiniz bir veri yapısıdır.
+
+```js
+// Boş bir dizi oluşturun
+let myArray = [];
+
+// Sayılardan oluşan bir dizi oluşturun
+let numbers = [1, 2, 3, 4, 5];
+
+// Dizelerden oluşan bir dizi oluşturun
+let fruits = ["apple", "banana", "orange"];
+
+// Farklı veri türlerini içeren bir dizi oluşturun
+let mixedArray = [1, "hello", true, { key: "value" }];
+```
+
+## Temel Dizi Metotları
+
+### push()
+
+`push()` : Dizinin sonuna bir veya daha fazla öğe ekler ve dizinin yeni uzunluğunu döndürür.
+
+```js
+let fruits = ["apple", "banana"];
+fruits.push("orange");
+console.log(fruits); // Çıktı: ["apple", "banana", "orange"]
+```
+
+### pop()
+
+`pop()` : Dizinin son öğesini kaldırır ve o öğeyi döndürür. Bu metot dizinin uzunluğunu değiştirir.
+
+```js
+let fruits = ["apple", "banana"];
+fruits.push("orange");
+console.log(fruits); // Çıktı: ["apple", "banana", "orange"]
+```
+
+### shift()
+
+`shift()` : Dizinin ilk öğesini kaldırır ve o öğeyi döndürür. Bu metot dizinin uzunluğunu değiştirir ve kalan öğelerin indekslerini kaydırır.
+
+```js
+let fruits = ["apple", "banana", "orange"];
+let removedFruit = fruits.shift();
+console.log(fruits); // Çıktı: ["banana", "orange"]
+console.log(removedFruit); // Çıktı: "apple"
+```
+
+### unshift()
+
+`unshift()` : Dizinin başına bir veya daha fazla öğe ekler ve dizinin yeni uzunluğunu döndürür.
+
+```Js
+let fruits = ["banana", "orange"];
+fruits.unshift("apple");
+console.log(fruits); // Çıktı: ["apple", "banana", "orange"]
+```
+
+### concat()
+
+`concat()`: İki veya daha fazla diziyi birleştirmek için kullanılır. Mevcut dizileri değiştirmez, bunun yerine yeni bir birleşik dizi döndürür.
+
+```js
+let fruits = ["apple", "banana"];
+let moreFruits = ["orange", "grape"];
+let allFruits = fruits.concat(moreFruits);
+console.log(allFruits); // Çıktı: ["apple", "banana", "orange", "grape"]
+```
+
+### slice()
+
+`slice()` : Bir dizinin bir bölümünü yeni bir dizi nesnesine sığ bir kopyasını döndürür. Orijinal dizi değişmez.
+
+```js
+let fruits = ["apple", "banana", "orange", "grape"];
+let citrus = fruits.slice(2, 4);
+console.log(citrus); // Çıktı: ["orange", "grape"]
+console.log(fruits); // Çıktı: ["apple", "banana", "orange", "grape"] (orijinal dizi değişmez)
+```
+
+### splice()
+
+`splice()` : Öğeleri kaldırarak veya değiştirerek ve/veya yeni öğeler ekleyerek bir dizinin içeriğini değiştirir.
+
+```js
+let fruits = ["apple", "banana", "orange", "grape"];
+fruits.splice(2, 1, "kiwi", "mango");
+console.log(fruits); // Çıktı: ["apple", "banana", "kiwi", "mango", "grape"] (1 öğe 2. indeksten kaldırılır ve yerine kiwi ve mango eklenir)
+```
+
+## Yineleme Metotları
+
+### forEach()
+
+`forEach()`: Her dizi öğesi için sağlanan bir işlevi bir kez yürütür.
+
+```js
+let fruits = ["apple", "banana", "orange"];
+fruits.forEach(function(fruit) {
+  console.log("I like " + fruit);
+});
+// Çıktı:
+// "I like apple"
+// "I like banana"
+// "I like orange"
+```
+
+### map()
+
+`map()` : Her öğe için bir işlev çağrıldıktan sonraki sonuçlarla doldurulan yeni bir dizi oluşturur.
+
+```js
+let numbers = [1, 2, 3];
+let doubled = numbers.map(function(number) {
+  return number * 2;
+});
+console.log(doubled); // Çıktı: [2, 4, 6]
+```
+
+### filter() 
+
+`filter()` : Sağlanan işlev tarafından uygulanan testi geçen tüm öğelerle yeni bir dizi oluşturur.
+
+```js
+let numbers = [1, 2, 3, 4, 5, 6];
+let evenNumbers = numbers.filter(function(number) {
+  return number % 2 === 0;
+});
+console.log(evenNumbers); // Çıktı: [2, 4, 6]
+```
+
+### reduce()
+
+`reduce()` : Bir dizideki her öğe için (soldan sağa) bir indirgeyici işlev uygular ve onu tek bir değere indirger.
+
+```js
+let numbers = [1, 2, 3, 4];
+let sum = numbers.reduce(function(accumulator, currentValue) {
+  return accumulator + currentValue;
+}, 0);
+console.log(sum); // Çıktı: 10 (1+2+3+4)
+```
+
+### find()
+
+`find()` : Sağlanan test işlevini karşılayan dizideki ilk öğenin değerini döndürür. Aksi takdirde `undefined` döndürülür.
+
+```js
+let numbers = [5, 12, 8, 130, 44];
+let found = numbers.find(function(element) {
+  return element > 10;
+});
+console.log(found); // Çıktı: 12 (10'dan büyük ilk öğe)
+```
+
+## Arama ve Sıralama
+
+### indexOf()
+
+`indexOf()`: Belirli bir öğenin bulunabileceği ilk indeksi döndürür veya mevcut değilse -1 döndürür.
+
+JavaScript
+```js
+let fruits = ["apple", "banana", "orange", "apple"];
+console.log(fruits.indexOf("apple")); // Çıktı: 0 (apple'ın ilk görüldüğü yer)
+console.log(fruits.indexOf("grape")); // Çıktı: -1 (bulunamadı)
+```
+
+### lastIndexOf()
+
+`lastIndexOf()`: Belirli bir öğenin bulunabileceği son indeksi döndürür veya mevcut değilse -1 döndürür.
+
+```js
+let fruits = ["apple", "banana", "orange", "apple"];
+console.log(fruits.lastIndexOf("apple")); // Çıktı: 3 ("apple"ın son görüldüğü yer)
+```
+
+### includes()
+
+`includes()`: Bir dizinin belirli bir öğeyi içerip içermediğini belirleyerek buna göre `true` veya `false` döndürür.
+
+```js
+let fruits = ["apple", "banana", "orange"];
+console.log(fruits.includes("banana")); // Çıktı: true
+console.log(fruits.includes("grape")); // Çıktı: false
+```
+
+
+### sort()
+`sort()`: Bir dizinin öğelerini yerinde sıralar ve diziyi döndürür. Varsayılan sıralama düzeni, öğeleri dizelere dönüştürerek ve ardından UTF-16 kod birimi değerleri dizilerini karşılaştırarak artan düzendedir.
+
+```js
+let fruits = ["banana", "apple", "orange"];
+fruits.sort();
+console.log(fruits); // Çıktı: ["apple", "banana", "orange"] (alfabetik olarak sıralanmış)
+
+let numbers = [4, 2, 5, 1, 3];
+numbers.sort(function(a, b) {
+  return a - b;
+});
+console.log(numbers); // Çıktı: [1, 2, 3, 4, 5] (sayısal olarak sıralanmış)
+```
+
+### reverse()
+
+`reverse()`: Bir dizinin öğelerinin sırasını tersine çevirir - ilk öğe son olur ve son öğe ilk olur.
+
+```js
+let fruits = ["apple", "banana", "orange"];
+fruits.reverse();
+console.log(fruits); // Çıktı: ["orange", "banana", "apple"]
+```
+
+
+## Diğer Faydalı Metotlar
+
+### join()
+
+`join()`: Bir dizideki (veya dizi benzeri bir nesnedeki) tüm öğeleri bir dizeye birleştirir ve bu dizeyi döndürür.
+
+
+```js
+let fruits = ["apple", "banana", "orange"];
+let fruitString = fruits.join(", ");
+console.log(fruitString); // Çıktı: "apple, banana, orange"
+```
+
+### toString()
+
+`toString()`: Bir diziyi ve öğelerini temsil eden bir dize döndürür.
+
+```js
+let fruits = ["apple", "banana", "orange"];
+let fruitString = fruits.toString();
+console.log(fruitString); // Çıktı: "apple,banana,orange"
+```
+
+### isArray()
+
+`isArray()`: Bir nesnenin bir dizi olup olmadığını belirler.
+
+```js
+console.log(Array.isArray([1, 2, 3])); // Çıktı: true
+console.log(Array.isArray({foo: 123})); // Çıktı: false
+```

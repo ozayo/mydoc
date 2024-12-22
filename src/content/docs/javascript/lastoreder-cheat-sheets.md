@@ -4,7 +4,7 @@ description: Some basic cheat sheets.
 
 sidebar:
   label: Cheat Sheet
-  order: 5
+  order: 6
 ---
 
 # Some Basic
