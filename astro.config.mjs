@@ -5,6 +5,17 @@ import starlight from "@astrojs/starlight";
 export default defineConfig({
   integrations: [
     starlight({
+      head: [
+        // Example: add Fathom analytics script tag.
+        {
+          tag: 'script',
+          attrs: {
+            src: 'https://analytics.netnet.nu/script.js',
+            'data-website-id': '08e24c2b-5462-4729-9e23-4dd784e6d22d',
+            defer: true,
+          },
+        },
+      ],
       title: "My DevNotes",
       locales: {
         root: {
