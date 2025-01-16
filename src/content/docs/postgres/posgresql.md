@@ -3,8 +3,8 @@ title: PostgreSQL
 description: postgres giris
 slug: posgresql
 sidebar:
-  label: terminal
-  order: 1
+  label: Terminal
+  order: 2
 ---
 
 ## PostgreSQL'in Çalışma Durumu
@@ -150,35 +150,3 @@ pg_dump:
 https://www.postgresql.org/docs/current/app-pgdump.html
 
 
-## PostgreSQL ile İlgili Genel Tavsiyeler
-1. PostgreSQL arka planda çalışıyorsa genellikle bir müdahale gerekmez. Ancak sistemde yoğun kaynak kullanımı varsa servis kapatılabilir.
-2. Eğer PostgreSQL’i her zaman açık tutmak istemiyorsanız, yalnızca gerektiğinde başlatmak için `brew services start` komutunu kullanabilirsiniz.
-
-Eğer PostgreSQL’i kapatmak isterseniz, arka planda çalışan servisi durdurmanız gerekir. Bunun için şu komutu kullanabilirsiniz:
-
-```bash
-brew services stop postgresql@15
-```
-Bu komut PostgreSQL servisini durdurur ve artık arka planda çalışmaz. Yalnızca ihtiyaç duyduğunuzda çalıştırmak için daha sonra şu komutu kullanabilirsiniz:
-
-```bash
-brew services start postgresql@15
-```
-
-**Not:**
-
-Eğer PostgreSQL’i manuel başlatmayı tercih ederseniz ve brew services kullanmak istemezseniz, şu şekilde çalıştırabilirsiniz:
-
-```bash
-/usr/local/opt/postgresql@15/bin/postgres -D /usr/local/var/postgresql@15
-```
-
-Bu işlem terminal açık olduğu sürece çalışır. Terminali kapattığınızda PostgreSQL de kapanır.
-
-**Durum Kontrolü:** Herhangi bir anda PostgreSQL’in çalışıp çalışmadığını kontrol etmek için:
-
-```bash
-brew services list
-```
-
-Çıktıda PostgreSQL’in durumunu görebilirsiniz (`started` veya `stopped`).
