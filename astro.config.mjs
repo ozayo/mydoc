@@ -6,7 +6,7 @@ export default defineConfig({
   integrations: [
     starlight({
       head: [
-        // Example: add Fathom analytics script tag.
+        // Umami Analytics for analytics.netnet.nu
         {
           tag: 'script',
           attrs: {
