@@ -84,6 +84,7 @@ export default defineConfig({
                 { label: "NPM", link: "/tools/npm/01/" },
                 { label: "Npm Npx Farki", link: "/tools/npm/02/" },
                 { label: "Npm komutları", link: "/tools/npm/03/" },
+                { label: "Npm Outdated", link: "/tools/npm/04/" },
               ],
             },
             {
