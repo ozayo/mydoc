@@ -23,11 +23,11 @@ export default defineConfig({
           lang: "tr-TR",
         },
       },
-      social: {
-        github: "https://github.com/ozayo/mydoc",
-        twitter: 'https://twitter.com/ozayozdemir',
-        linkedin: 'https://www.linkedin.com/in/ozay-ozdemir/',
-      },
+      social: [
+        { label: "GitHub", href: "https://github.com/ozayo/mydoc", icon: "github" },
+        { label: "Twitter", href: "https://twitter.com/ozayozdemir", icon: "twitter" },
+        { label: "LinkedIn", href: "https://www.linkedin.com/in/ozay-ozdemir/", icon: "linkedin" }
+      ],
       customCss: ["./src/styles/custom.css"],
       sidebar: [
         {
