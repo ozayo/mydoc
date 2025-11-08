@@ -1,5 +1,7 @@
 :root {
- --sl-text-base:1rem;
+  /* --sl-font: 'Open Sans Variable', sans-serif; */
+  --sl-font: 'IBM Plex Sans Variable', sans-serif;
+  --sl-text-base:1rem;
   --sl-text-h1: var(--sl-text-4xl);
   --sl-text-h2: var(--sl-text-3xl);
   --sl-text-h3: var(--sl-text-2xl);

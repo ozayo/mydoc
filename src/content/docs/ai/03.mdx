@@ -1,0 +1,310 @@
+---
+title: AI ile bir projeye başlarken
+description: Ai ile bir projeye başlarken dikkat edilmesi gereken temel adımları ve ipuçları bu belgede bulabilirsiniz.
+lastUpdated: 2025-11-08
+sidebar:
+  label: Projeye Başlarken
+  order: 3
+---
+import { FileTree } from '@astrojs/starlight/components';
+
+Bu rehber, **AI destekli geliştirme** (Chat tabanlı araçlar, VS Code eklentileri, terminal araçları, Cursor/Windsurf/Cline vb.) ile **yeni bir projeye başlarken** maksimum verim almak ve hataları azaltmak için oluşturulacak **temel belgeler**, **klasör yapısı** ve **kullanım yöntemi**ni anlatır.
+
+Amaç: AI'nin projeyi **hızla anlaması**, **kuralları görmesi** ve **tutarlı üretmesi**.
+
+Aşağıdaki örnek fazla karmaşık görünüyor olabilir, bu daha büyük projeler için ideal yapıdır.
+Küçük projelerde daha sade şekilde uygulanabilir. Örneğin sadece README.md, PROJECT_RULES.md ve src/ klasörü ile başlanabilir.
+
+Tabiki bu işin tek bir doğrusu yok, siz kendi ihtiyacınıza göre uyarlayabilir veya kullandığınız AI araçlarının özelliklerine ve yapısına göre değiştirebilirsiniz.
+
+
+## Hızlı Özet (Checklist)
+
+- [ ] **README.md** – Amaç, kapsam, kurulum, çalışma komutları  
+- [ ] **PROJECT_RULES.md** – AI için talimatlar ve kırmızı çizgiler  
+- [ ] **ARCHITECTURE.md** – Mimari özet ve akışlar  
+- [ ] **DECISIONS.md** – Mühendislik karar günlüğü (ADR)  
+- [ ] **GLOSSARY.md** – Alan sözlüğü (domain terimleri)  
+- [ ] **SPEC/** – Özellik/endpoint/şema sözleşmeleri  
+- [ ] **TESTS-FIRST.md** – Test öncelikli geliştirme rehberi  
+- [ ] **PROMPTS.md** – Yeniden kullanılabilir promptlar  
+- [ ] **TASKS/** – Atomik iş kartları  
+- [ ] **CONTRIBUTING.md** – PR/branch/diff kuralları  
+- [ ] **.editorconfig, .gitignore, lint/format config**  
+- [ ] **/examples**, **/fixtures**, **/scripts**
+
+---
+
+## 1) Klasör ve Dosya Yapısı (Önerilen)
+
+
+<FileTree>
+- docs/
+  - ARCHITECTURE.md
+  - DECISIONS.md
+  - GLOSSARY.md
+  - PROJECT_RULES.md
+  - TESTS-FIRST.md
+  - PROMPTS.md
+- spec/                # Sözleşmeler (API, şema, use case)
+  - api/
+  - schema/
+  - user-stories/
+- tasks/               # AI'ye verilecek atomik görev dosyaları
+  - 001-add-login.md
+  - 002-list-products.md
+- tests/               # Testler (unit, integration, e2e)
+- src/                 # Uygulama kodu
+- examples/            # Çalışan örnekler / snippet’ler
+- fixtures/            # Sahte veri / seed
+- scripts/             # CLI yardımcıları / otomasyon
+- .editorconfig
+- .gitignore
+- package.json (veya pyproject.toml / go.mod / etc.)
+- README.md
+</FileTree>
+
+**Neden böyle?** AI, “tek bakışta” proje kuralları ve bağlamı görür; görevleri küçük ve testlenebilir parçalara bölebilir; kararlar kalıcı ve izlenebilir olur.
+
+## 2) Temel Belgeler ve Örnek Şablonlar
+
+Aşağıda her belgenin amacını ve örnek içeriklerini bulabilirsiniz.
+
+### 2.1) README.md
+
+README.md dosyası AI'nin ilk bakacağı yerdir. Projenin genel amacını, kapsamını, kurulum talimatlarını ve çalışma komutlarını içerir.
+AI'nin projeyi hızlıca anlaması için temel bilgileri sağlar.
+
+Amaç, kapsam, kurulum, çalışma komutları ve “nereden başlayacağını” açık yazın.
+
+```markdown 
+# Proje Adı
+Bu proje, [proje amacı] için geliştirilmiştir. 
+
+## Goal (Amaç)
+Kısa ve net: Bu proje X kullanıcılarına Y değeri sağlar. Ana use-case: ...
+
+## Quick Start (Hızlı Başlangıç)
+``bash
+pnpm i
+pnpm dev
+pnpm test
+``
+> Update the scripts in `package.json` to match your stack (Next.js, Node API, etc.).
+
+## Architecture Overview (Mimarinin Özeti)
+- Frontend: (example) Next.js + Tailwind + shadcn/ui
+- Backend: (example) Supabase (Auth, DB, Storage)
+- API: REST/Route Handlers under `src/app/api/*`
+More details: `docs/ARCHITECTURE.md`
+
+## Development Rules (Geliştirme Kuralları)
+- Test-first: see `docs/TESTS-FIRST.md`
+- AI-specific rules: `docs/PROJECT_RULES.md`
+- Pick an atomic task from `tasks/`
+
+## Useful Folders (Faydalanılacak Klasörler)
+- Contracts/specs: `spec/`
+- Decisions (ADR): `docs/DECISIONS.md`
+- Examples/fixtures: `examples/`, `fixtures/`
+```
+
+**İpucu:** “Nereden başlamalıyım?” bölümünü **çok belirgin** yazın ve `tasks/` klasörüne işaret edin.
+
+
+### 2.2 PROJECT_RULES.md (AI Çalışma Kuralları)
+
+AI'nin **ne yapacağını / yapmayacağını** netleştirir. Hataları ciddi şekilde azaltır.
+
+```md
+# PROJECT_RULES
+
+## Genel
+- Kod yazmadan önce ilgili `tasks/*.md` dosyasını okuyup *yalnızca o görevi* tamamla.
+- Kodu **minimum etki** ilkesiyle değiştir (gereksiz refactor yok).
+- Değişiklik yaptığı her dosyayı kısaca açıkla.
+
+## Kod Standartları
+- Dil: TypeScript, strict mode.
+- Stil: ESLint + Prettier (script: `pnpm lint`, `pnpm format`).
+- Mimari: UI bileşenleri `src/components`, iş kuralları `src/lib`.
+
+## Test Stratejisi
+- Önce test: ilgili testleri yaz/güncelle, sonra kodu uygula.
+- Her feature için en az 1 unit + 1 integration testi.
+
+## Güvenlik ve Gizlilik
+- .env değişkenlerini asla sızdırma, örn: `.env.example` kullan.
+- Kullanıcı verisini loglama: anonimleştir.
+
+## İletişim
+- Anlaşılmayan gereksinim → `tasks/NNN-*.md` içinde “Sorular” bölümüne ekle.
+- Büyük karar → `docs/DECISIONS.md` kaydı oluştur.
+```
+
+### 2.3) ARCHITECTURE.md (Mimari Harita)
+
+AI’nin “nerede ne var?” sorusunu tek dosyada cevaplar.
+
+```markdown
+# ARCHITECTURE
+
+## Katmanlar
+- App (Next.js routes) → Controller
+- Service (iş kuralları) → `src/lib/services`
+- Data (Supabase) → `src/lib/db`
+
+## Akış Örneği: Login
+1) `/api/auth/login` → controller
+2) `authService.login()` → iş kuralı
+3) `db.user.findByEmail()` → veri erişimi
+4) Token üretimi → `authService.issueToken()`
+
+## Bağımlılıklar
+- Supabase client → `src/lib/db/client.ts`
+- UI lib → shadcn/ui; temalar `src/styles/*`
+
+## Non-Goals
+- SSR dışı runtime’lar (şimdilik yok)
+- Çoklu tenants (v2’de)
+
+```
+### 2.4) DECISIONS.md (Mühendislik Kararları)
+
+AI’nin verdiği/teyit ettiği kararları izlenebilir kılar.
+
+```markdown
+# DECISIONS (ADR)
+
+## 2025-11-08 – Kimlik doğrulama yöntemi
+- Karar: Supabase Auth kullan.
+- Neden: Projede Supabase zaten var; hız, maliyet ve bakım kolaylığı.
+- Alternatifler: NextAuth; ancak gereksiz ek karmaşıklık.
+- Etki: `src/lib/auth/*` dosyaları.
+
+## 2025-11-08 – UI Kit
+- Karar: shadcn/ui.
+- Neden: Tailwind uyumlu, SSR dostu.
+```
+
+### 2.5) GLOSSARY.md (Alan Sözlüğü)
+
+Modelin domain’i yanlış anlamasını engeller.
+
+```markdown
+# GLOSSARY
+- LIA: İsveç’te iş başı eğitimi (internship benzeri).
+- Employer: Staj veren şirket.
+- School: Öğrencinin kayıtlı olduğu eğitim kurumu.
+- Mentor: Öğrenciye rehberlik eden kişi.
+```
+### 2.6) 2.6 TESTS-FIRST.md (Test Öncelikli Geliştirme)
+
+“Önce test sonra kod” yaklaşımını operasyonelleştirir.
+
+```markdown
+# TESTS-FIRST
+
+1) `tasks/` içinden görev seç.
+2) İlgili kullanım senaryosunu testle (failing test).
+3) Minimum kod değişikliği ile testi geçir.
+4) Refactor (opsiyonel).
+5) PR aç ve `tests:` + `changes:` özetini ekle.
+````
+
+### 2.7) PROMPTS.md (Yeniden Kullanılabilir Promptlar)
+
+Yaygın görevler için optimize edilmiş promptları depolar.
+
+```markdowN
+# PROMPTS
+
+## “Tek Dosya Refactor”
+Amaç: Yalnızca hedef dosyayı düzenle.
+Talimat:
+- Değişiklik öncesi/sonrası kısa özet yaz.
+- Public API imzasını koru.
+
+## “API Sözleşmesine Uygun Implementasyon”
+Girdi: `spec/api/<endpoint>.md`
+Çıktı: Controller + Service + Test
+```
+### 2.8) tasks/ Klasörü (Atomik İş Kartları)
+
+Task klasörü altında her bir görev için /tasks/NNN-*.md dosyaları oluşturun.
+AI'nin odağını tek sonuçta toplar, PR kalitesini artırır.
+
+```markdown
+# 001 - Kullanıcı girişi (login) ekle
+
+## Hedef
+Kullanıcı e-posta + şifre ile giriş yapabilmeli.
+
+## Kabul Kriterleri
+- POST /api/auth/login → 200 (token döner)
+- Hatalı kimlik → 401
+- Testler: `tests/auth/login.test.ts`
+
+## Kısıtlar
+- Yalnızca `authService`, `db.user` alanları değiştirilebilir.
+- UI minimal; form ve basic doğrulama yeterli.
+
+## Notlar
+- Şema: `spec/schema/user.json`
+- Örnek cevap: `examples/auth/login-success.json`
+````
+
+## 3) Destekleyici Dosyalar (Tutarlılık ve Kalite)
+AI’nin oluşturduğu kodun kalite standartlarını korur.
+
+- `.editorconfig` – Dosya kodlaması, satır sonu, indent.
+- `ESLint/Prettier/Biome` – Tutarlı stil ve otomatik format.
+- `.gitignore` – Build, cache, environment dosyaları.
+- `.env.example` – Gerekli değişkenler için şablon.
+- `package.json` script’leri – dev, build, test, lint, format, typecheck
+- `PR_TEMPLATE.md` – AI/insan için net PR formatı:
+  
+  ```markdown
+  ## Amaç
+  ## Değişiklik Özeti
+  ## Etkilenen Dosyalar
+  ## Testler
+  ## Riskler / Geri Alma
+  ## Notlar
+  ```
+## 4) AI Araçlarıyla Kullanım Stratejisi
+
+**Minimal (her araçla uyumlu)**
+
+- README + PROJECT_RULES + tasks/ → Başlangıç için yeterli.
+- AI’den beklenti: “Şu görev dosyasını uygula, önce test yaz.”
+
+**Standart (VS Code + eklentiler / Cursor/Windsurf)**
+
+- ARCHITECTURE + DECISIONS + GLOSSARY ekleyin.
+- Büyük değişiklikler için atomik tasks/ kullanın.
+- AI’ye test-öncelikli akışı hatırlatın (PROMPTS.md kısayollarıyla).
+
+**İleri (Terminal araçları / MCP / Ajanlar)** 
+
+- spec/ içindeki sözleşmelerden kod üretimi + test çalıştırma otomasyonu.
+- (Varsa) MCP/agent yapılandırması: dosya erişimi, arama, git işlemleri gibi araçları standart arayüzle bağlayın.
+- Otomasyon için scripts/ci-verify.sh (lint+typecheck+test) çalıştırın.
+
+
+## 5) Sık Yapılan Hatalar ve Karşı Hamle
+
+| Hata| Çözüm |
+| :--- | :--- |
+| “AI çok dosya değiştirdi, PR şişti.” | Görevleri tek hedefli yazın; `tasks/`’ı atomik tutun; PROJECT_RULES ile sınır koyun. |
+| “AI mimariyi anlamadı, yanlış yerden kod yazdı.” | ARCHITECTURE.md ile net harita sunun; GLOSSARY ile domain’i açıklayın. |
+|“Domain yanlış anlaşıldı.” | GLOSSARY.md ile terimleri tanımlayın; SPEC/ ile sözleşmeleri netleştirin. |
+| “AI kararları unutuyor, tutarsız kod üretiyor.” | DECISIONS.md ile kararları kaydedin; PROJECT_RULES ile kuralları hatırlatın. |
+| “AI test yazmıyor, hatalar artıyor.” | TESTS-FIRST.md ile süreci netleştirin; PROMPTS.md ile test-öncelikli promptlar kullanın. |
+---
+
+## Sonuç
+
+Bu konuda önerilen yapı ve belgeler, AI destekli geliştirme süreçlerinde **hız**, **tutarlılık** ve **kalite**yi artırmayı hedefler.
+AI’nin projeyi hızlıca anlaması, doğru kararlar alması ve tutarlı kod üretmesi için gerekli bağlamı sağlar.
+Kendi projelerinize uyarlayarak en iyi sonuçları elde edebilirsiniz.  

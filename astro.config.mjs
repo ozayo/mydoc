@@ -23,12 +23,21 @@ export default defineConfig({
           lang: "tr-TR",
         },
       },
+      logo: {
+        light: './src/assets/oo-logo.svg',
+        dark: './src/assets/oo-logo-white.svg',
+        replacesTitle: true,
+    },
       social: [
         { label: "GitHub", href: "https://github.com/ozayo/mydoc", icon: "github" },
         { label: "Twitter", href: "https://twitter.com/ozayozdemir", icon: "twitter" },
         { label: "LinkedIn", href: "https://www.linkedin.com/in/ozay-ozdemir/", icon: "linkedin" }
       ],
-      customCss: ["./src/styles/custom.css"],
+      customCss: [
+        "./src/styles/custom.css",
+        // '@fontsource-variable/open-sans',
+        '@fontsource-variable/ibm-plex-sans',
+      ],
       sidebar: [
         {
           label: "Hoşgeldiniz?",

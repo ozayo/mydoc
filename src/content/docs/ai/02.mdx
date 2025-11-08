@@ -1,0 +1,59 @@
+---
+title: MCP Server
+description: MCP server kavrami AI aracalarinda cok karsilacagimiz bir konu olacak.
+lastUpdated: 2025-11-08
+sidebar:
+  label: MCP Server
+  order: 2
+---
+
+MCP server kavramı çok yeni olmasına rağmen yapay zekanın diğer uygulamalarla ve API'lerle iletişim kurması için önemli bir adımdır. 
+MCP server kavramı ile AI araçlarında çok karşılaşacağımız için bu konuda detaylı bilgi sahibi olmak faydalı olacak.
+
+Asagida MCP server nedir, neden kullanilir gibi temel sorulara cevap bulabilirsiniz.
+
+
+# MCP Server Nedir?
+
+**MCP**'nin açılımı **Model Context Protocol** (Model Bağlam Protokolü) demektir. Basitçe anlatmak gerekirse, MCP Server, yapay zekâ (AI) modellerinin (tıpkı ChatGPT veya Gemini gibi büyük dil modellerinin) kullandığınız diğer programlarla veya internetteki hizmetlerle (**API'lerle**) konuşabilmesini sağlayan **standart bir tercümandır** veya **iletişim köprüsüdür**.
+
+Bu sunucu, AI'nın "Dış Dünya" ile güvenli, standart ve kontrollü bir şekilde etkileşim kurmasını sağlar.
+
+## Ne Amaçla Kullanılır?
+
+MCP Server'ın temel amacı, bir yapay zekâ asistanının sadece kendi öğrendiği eski bilgilerle cevap vermesini değil, aynı zamanda **gerçek zamanlı eylemler gerçekleştirmesini** ve **güncel bilgilere erişmesini** sağlamaktır.
+
+AI'nın yapabildiklerine somut örnekler:
+
+* **Eylem Gerçekleştirme:** "Takvime yarın sabah 10'da toplantı ekle" dediğinizde, AI'nın takvim uygulamanızdaki (Google Calendar gibi) bir aracı kullanarak bu toplantıyı gerçekten oluşturabilmesi.
+* **Canlı Bilgi Alma:** "Şirketin son çeyrek satış raporunu bul ve özetle" dediğinizde, AI'nın şirketinizin veritabanı veya bulut depolama sistemi (Drive, Slack vb.) ile konuşarak raporu çekmesi.
+* **Kullanıcı Arayüzü Yönetimi:** Bir kod düzenleyicide (IDE) çalışırken, AI'nın mevcut proje dosyalarınıza bakabilmesi veya bir test komutu çalıştırabilmesi.
+
+## Neden İhtiyaç Duyuldu?
+
+Büyük dil modelleri (LLM'ler) inanılmaz derecede akıllıdır, ancak başlangıçta iki büyük sorunları vardı:
+
+1.  **Dış Dünya Bağlantısı Yoktu:** LLM'ler yalnızca eğitim verileriyle sınırlıydı. Bir e-posta göndermek, bir veriyi kaydetmek veya bir uygulamada bir tuşa basmak gibi bir eylemi kendi başlarına yapamıyorlardı.
+2.  **Entegrasyon Karmaşası:** Her uygulama (Gmail, Slack, Jira, kod editörleri, vb.) AI'ya bağlanmak için farklı bir yol gerektiriyordu. Geliştiricilerin, her bir araç için ayrı ayrı karmaşık entegrasyonlar yazması gerekiyordu.
+
+**MCP**, bu karmaşayı çözen **tek tip bir dil (protokol)** sunar. Artık AI, bir MCP Server üzerinden bağlandığı her araçla aynı standart kurallar çerçevesinde iletişim kurabilir.
+
+## AI Araçları ile Nasıl Kullanılır?
+
+Kodlama araçları bağlamında, MCP Server'lar AI'nın yeteneklerini kökten değiştirir:
+
+| Kullanım Alanı | MCP'den Önce | MCP ile Birlikte |
+| :--- | :--- | :--- |
+| **Kod Editörleri (VS Code, Cursor)** | AI, sadece yazdığınız kodu tahmin eder. | AI, **tüm projenizi okur**, hataları ayıklar, yeni dosyalar oluşturur ve hatta "Bu fonksiyon için birim testi yaz ve çalıştır" gibi komutları yerine getirir. |
+| **Hata Ayıklama** | AI'ya hata kodunu kopyalayıp yapıştırırsınız. | AI, MCP sunucusu üzerinden **derleme (build) ve test komutlarını çalıştırır**, log kayıtlarını okur ve hatanın nedenini bularak düzeltmeyi kendisi önerir. |
+| **İş Akışı Otomasyonu** | Farklı uygulamalar için farklı botlar gerekir. | **Tek bir AI ajanı**, MCP sunucuları aracılığıyla aynı anda e-posta okuma, takvime etkinlik ekleme ve kod deposunda bir sorun (issue) açma gibi karmaşık zincir görevleri tek bir komutla halledebilir.
+
+Özetle, MCP Server, yapay zekâyı sadece bir sohbet robotu olmaktan çıkarıp, şirketinizin veya kişisel bilgisayarınızın içinde gerçekten **görevleri yerine getirebilen, aktif bir asistan** haline getirir.
+
+## Linkler ve Kaynaklar
+
+- MCP Resmi Dokümantasyonu <a href="https://modelcontextprotocol.io/" target="_blank" rel="noopener noreferrer">https://modelcontextprotocol.io/</a>
+- MCP GitHub Deposu <a href="https://github.com/modelcontextprotocol/servers" target="_blank" rel="noopener noreferrer">https://github.com/modelcontextprotocol/servers</a>
+- cursor.directory MCP listesi <a href="https://cursor.directory/mcp" target="_blank" rel="noopener noreferrer">https://cursor.directory/mcp</a>
+- MCP.so <a href="https://mcp.so/" target="_blank" rel="noopener noreferrer">https://mcp.so/</a>
+- MCP Market <a href="https://mcpmarket.com/" target="_blank" rel="noopener noreferrer">https://mcpmarket.com/</a>
