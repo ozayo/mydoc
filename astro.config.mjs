@@ -36,7 +36,7 @@ export default defineConfig({
         },
         {
           label: "Tools",
-          collapsed: false,
+          collapsed: true,
           items: [
             // Each item here is one entry in the navigation menu.
             { label: "Önemli araçlar", link: "/tools/01/" },
@@ -106,41 +106,42 @@ export default defineConfig({
         },
         {
           label: "Kavramlar",
+          collapsed: true,
           autogenerate: { directory: "sozluk" },
-          badge: { text: 'Devam ediyor', variant: 'caution' },
         },
         {
           label: "JavaScript",
+          collapsed: true,
           autogenerate: { directory: "javascript" },
-          badge: { text: 'Devam ediyor', variant: 'caution' },
         },
         {
           label: "TypeScript",
+          collapsed: true,
           autogenerate: { directory: "typescript" },
         },
         {
           label: "CSS",
+          collapsed: true,
           autogenerate: { directory: "css" },
-          badge: { text: 'Devam ediyor', variant: 'caution' },
         },
         {
           label: "React JS",
+          collapsed: true,
           autogenerate: { directory: "react" },
-          badge: { text: 'Devam ediyor', variant: 'caution' },
         },
         {
           label: "Next JS",
+          collapsed: true,
           autogenerate: { directory: "nextjs" },
-          badge: { text: 'Devam ediyor', variant: 'caution' },
         },
         {
           label: "ReactNative",
+          collapsed: true,
           autogenerate: { directory: "reactnative" },
-          badge: { text: 'Devam ediyor', variant: 'caution' },
         },
         {
           label: "Databases",
-          collapsed: false,
+          collapsed: true,
           items: [
             // a nested group links
             //postgres
@@ -156,6 +157,11 @@ export default defineConfig({
             //   autogenerate: { directory: "mysql" },
             // },
           ],
+        },
+        {
+          label: "AI Tools",
+          collapsed: true,
+          autogenerate: { directory: "ai" },
         },
         // {
         //   label: "OzayJS",
