@@ -1,0 +1,83 @@
+---
+title: AI ile kullanabileceğimiz yardımcı araclar
+description: AI araclarının performansını arttırmak için kullanabileceğimiz bazı yardımcı araçlar ve yöntemler.
+lastUpdated: 2025-11-11
+sidebar:
+  label: Yardımcı Araçlar
+  order: 4
+---
+import { Aside } from '@astrojs/starlight/components';
+
+Bu belgede, AI araçları ile kullanabileceğimiz bazı yardımcı araçlar ve yöntemler hakkında bilgi vermeye çalışacağım. 
+Bu araçlar, AI'nın yeteneklerini genişletmek, entegrasyonları kolaylaştırmak ve kullanıcı deneyimini iyileştirmek için kullanılabilir.
+
+Web Sitesi: <a href="https://context7.com/" target="_blank" rel="noopener noreferrer">https://context7.com</a> \
+MCP Server listesi: <a href="https://github.com/upstash/context7" target="_blank" rel="noopener noreferrer">https://github.com/upstash/context7</a> 
+
+## Context7
+
+Context7, bir Model Context Protocol (MCP) sunucusu olarak tanımlanıyor ve temel amacı, kullandığınız dil modellerine (LLM'ler) en güncel ve sürüme özgü dökümantasyonu sağlamaktır.
+
+### Context7 Nedir?
+
+Context7 MCP, LLM'lerin (örn. bir kod asistanı olarak kullanılan yapay zekaların) kod üretirken karşılaştığı temel sorunları çözmek için tasarlanmıştır:
+
+1. **Eski/Tarihli Kod Örnekleri:** LLM'ler yalnızca eğitildikleri tarihe kadar olan bilgilere sahiptir. 
+Yeni çıkan kütüphane sürümlerini veya güncel API değişikliklerini bilemezler. Context7, bu bilgiyi gerçek zamanlı olarak çeker.
+2. **Hallüsinasyon Riski:** Yapay zeka, bilmediği konularda bazen uydurma veya hatalı bilgiler (yanlış metot isimleri, eksik parametreler) verebilir. Context7, resmi dökümantasyonu sağlayarak bu riski en aza indirir.
+3. **Genelleştirilmiş Cevaplar:** LLM'ler genel kullanım biçimlerini sunarken, Context7 spesifik olarak kullanmakta olduğunuz kütüphane veya paketin tam o anki sürümüne ait detayları sunar.
+
+Özetle, Context7, yapay zekanın "bağlam penceresini" genişleterek ve güncel tutarak, ondan daha doğru, güvenilir ve modern kod önerileri almanızı sağlar.
+
+
+### Context7 Nasıl Kullanılır?
+Context7, genellikle doğrudan bir geliştirme ortamı (IDE) veya yapay zeka destekli kodlama aracı ile entegre bir şekilde kullanılır. 
+
+GitHub'da Installation altinda <a href="https://github.com/upstash/context7?tab=readme-ov-file#%EF%B8%8F-installation" target="_blank" rel="noopener noreferrer">Link</a> goreceginiz uzere cok fazla entegrasyon secenegi bulunmaktadir.
+
+**Kullanım mantığı şu şekildedir:**
+
+1. **Kurulum:** Context7 MCP sunucusunu (ki bu genellikle bir Node.js kurulumu gerektirir) kendi yerel sisteminize veya erişilebilir bir sunucuya kurarsınız. API anahtari almak icin context7.com uzerinden kayit olmaniz gerekmektedir.
+  
+  Asagida VS Code'da kullanilan Cline icin ornek bir kurulum komutu bulunmaktadir:
+  ```json
+    {
+    "mcpServers": {
+      "github.com/upstash/context7-mcp": {
+        "url": "https://mcp.context7.com/mcp",
+        "type": "streamableHttp",
+        "headers": {
+          "Authorization": "YOUR API KEY HERE"
+        },
+        "autoApprove": [
+          "resolve-library-id",
+          "get-library-docs"
+        ]
+      }
+    }
+  }
+  ```
+
+2. **Entegrasyon:** Kullandığınız yapay zeka kod asistanını veya IDE'yi bu Context7 sunucusuna bağlarsınız.
+
+3. **Çalışma Şekli:** Bağlantı sağlandıktan sonra, Context7 büyük ölçüde arka planda, otomatik ve görünmez bir şekilde çalışır. Kodlama yaparken, yapay zekadan bir kütüphane (örneğin React, Next.js veya belirli bir NPM paketi) hakkında yardım istediğinizde:
+    - Yapay zeka, doğrudan kendi eğitilmiş bilgisine dayanmak yerine, Context7'ye bir kütüphane kimliği ("resolve-library-id") gönderir.
+    - Context7, bu kimliğe karşılık gelen en güncel ve sürüme özgü dökümantasyonu kaynaklarından çeker ("get-library-docs").
+    - Çekilen bu güncel dökümantasyon bilgisi, yapay zekanın prompt'unun (komutunun) içine eklenir.
+
+**Sonuç:** Yapay zeka, sadece kendi genel bilgisiyle değil, aynı zamanda o anki güncel dökümantasyonla beslenmiş olarak size çok daha doğru ve geçerli kod parçacıkları veya açıklamalar sunar.
+
+Bu sayede, sürekli olarak tarayıcı sekmesi açıp dökümantasyon aramak zorunda kalmazsınız ve yapay zekanın verdiği kodun güncel olduğundan emin olursunuz.
+
+<Aside type="tip">
+
+**Nadiren: Açıkça Belirtme**
+
+Bazı entegrasyonlarda, özellikle aracı yeni bir kütüphaneye yönlendirirken, kütüphanenin kimliğini manuel olarak belirtmeniz gerekebilir.
+
+Diyelim ki, projenizde yeni kullanmaya başladığınız ve yapay zekanın tam olarak tanımadığı bir `xyz-library` var.
+
+Bu durumda, yapay zeka aracına özel bir komut (örneğin, bir "resolve" komutu) kullanarak Context7'ye, "Şu an xyz-librarynin dökümantasyonunu bağlama ekle" talimatını vermeniz gerekebilir.
+
+
+</Aside>
