@@ -1,0 +1,138 @@
+---
+title: SuperClaude Framework ile Gelişmiş AI Çalışmaları
+description: SuperClaude_Framework'ün sunduğu komut setleri, ajanlar ve MCP entegrasyonlarıyla Claude Code deneyimini nasıl genişletebileceğinizi anlatıyoruz.
+lastUpdated: 2025-11-13
+sidebar:
+  label: SuperClaude Framework
+  order: 5
+---
+import { Aside } from '@astrojs/starlight/components';
+
+SuperClaude_Framework, Claude Code'u meta-programlama teknikleriyle genişleterek 30 slash komutu, 16 uzman ajan ve 7 davranış modu sunan kapsamlı bir yapılandırma çerçevesidir. 
+Projenin resmi kaynakları üzerinden hem CLI araçlarına hem de ayrıntılı dokümantasyona erişebilirsiniz:
+
+Repo: <a href="https://github.com/SuperClaude-Org/SuperClaude_Framework" target="_blank" rel="noopener noreferrer">https://github.com/SuperClaude-Org/SuperClaude_Framework</a> \
+Web Sitesi: <a href="https://superclaude.netlify.app/" target="_blank" rel="noopener noreferrer">https://superclaude.netlify.app/</a>
+
+## SuperClaude_Framework Nedir?
+
+Çerçeve, Claude Code'u sadece bir IDE aracı olmaktan çıkarıp davranışsal talimat enjeksiyonu, çoklu ajan koordinasyonu ve MCP tabanlı entegrasyonlarla yönetişim kurallarına sahip bir geliştirme platformuna dönüştürür. 
+Slash komutlarının büyük bölümü proje planlamadan test otomasyonuna kadar uzanır ve MCP sunucuları sayesinde canlı web araştırması, resmi dokümantasyon taraması veya oturum belleği gibi yetenekler eklenir.
+
+### Temel İstatistikler
+
+| Komutlar | Ajanlar | Modlar | MCP Sunucuları |
+|:--------:|:-------:|:------:|:--------------:|
+| 30 | 16 | 7 | 8 |
+
+Komutlar; beyin fırtınası (`/brainstorm`), mimari tasarım (`/design`), derin araştırma (`/research`), test (`/test`), kod temizliği (`/cleanup`) ve repo indeksleme (`/index`) gibi tüm geliştirme döngüsünü kapsar. 16 uzman ajan (örneğin PM, güvenlik mühendisi, frontend mimarı) bağlama göre otomatik aktarılır. 7 davranış modu (Brainstorming, Deep Research, Token Efficiency vb.) Claude Code'un cevap tarzını bağlama uygun hale getirir.
+
+## Kurulum Akışı
+
+### pipx Üzerinden (Önerilen)
+
+```bash
+pipx install superclaude
+superclaude install           # 30 komutun tamamını kurar
+superclaude mcp --list        # MCP sunucularını gör
+superclaude mcp               # Etkileşimli kurulum
+superclaude doctor            # Sağlık kontrolü
+```
+
+### Depodan Doğrudan Kurulum
+
+```bash
+git clone https://github.com/SuperClaude-Org/SuperClaude_Framework.git
+cd SuperClaude_Framework
+./install.sh
+```
+
+Kurulumdan sonra Claude Code oturumunu yeniden başlatarak slash komutlarına erişebilirsiniz. `superclaude install --list` çıktısı, tüm komutların sisteminizde hazır olup olmadığını denetler.
+
+## MCP Sunucuları ve İnce Ayar
+
+Proje CLI'si, 8 hazır MCP sunucusunun tamamını tek bir komutla kurgular:
+
+- **Tavily:** Derin araştırma için web araması
+- **Context7:** Güncel resmi dokümantasyon
+- **Sequential-Thinking:** Adım adım akıl yürütme
+- **Serena:** Oturum belleği ve hafıza sağlar
+- **Playwright:** Çapraz tarayıcı testleri
+- **Magic:** UI bileşeni türetimi
+- **MorphLLM Fast Apply:** Bağlamsal kod değişiklikleri
+- **Chrome DevTools:** Performans analizi
+
+Kurulum sırasında `superclaude mcp --servers tavily context7` gibi komutlarla sadece ihtiyaç duyduğunuz sunucuları da seçebilirsiniz. MCP'ler devredeyken komut sürelerinde 2-3 kata varan kısalma ve %30-50 daha az token kullanımı raporlanıyor.
+
+## Davranışsal Modlar ve Ajan Koordinasyonu
+
+SuperClaude modları, yeni bir proje kurarken ya da mevcut bir kod tabanını geliştirirken Claude Code'un davranışını değiştirir. Modlar slash komutlarından bağımsızdır; herhangi bir komutu çalıştırmadan önce modu seçtiğinizde aynı oturumdaki yanıtlar o stratejiye göre şekillenir.
+
+1. **Brainstorming:** Yeni proje fikirleri, MVP kapsamı veya isim/özellik seçimi gibi belirsiz aşamalarda kullanılır. Ajan, sorular sorarak gereksinimi netleştirir, ardından `\`/brainstorm` veya `\`/design` komutlarıyla uyumlu öneriler üretir.
+2. **Business Panel:** Projeyi müşteriye sunmadan önce ürün, pazarlama ve teknik tarafı aynı cevapta tartışmak istediğinizde devreye alınır. Örneğin mevcut SaaS ürününe yeni paket eklerken `\`/business-panel` komutu bu modda farklı uzman görüşleri getirir.
+3. **Deep Research:** Mevcut projeye entegre edeceğiniz kütüphane, rakip analizi ya da standart ararken Tavily, Playwright ve Sequential MCP'lerini zincir halinde çalıştırır. Uzun soluklu `\`/research` görevlerinde güncel kaynak ve bağlantılar döner.
+4. **Orchestration:** Mevcut bir projeye refactoring veya yeni servis eklerken tek bir komutta plan, kod ve test akışını yönetmek için uygundur. `\`/implement` komutunu bu modla kullandığınızda ajan gerektiğinde diğer komutları çağırır.
+5. **Token Efficiency:** Repo büyük, bağlam küçük olduğunda veya aynı projeyi defalarca sorguladığınızda idealdir. `\`/index` veya `\`/test` komutlarını bu modla çalıştırarak az token harcayıp hızlı özet alırsınız.
+6. **Task Management:** Yeni sprint planı çıkarırken ya da geçmiş görevleri mevcut projede izlemek istediğinizde `\`/task`, `\`/pm`, `\`/workflow` komutları bu modda detaylı backlog ve teslim tarihleriyle döner.
+7. **Introspection:** Hem yeni hem mevcut projelerde Claude'un verdiği çıktıyı doğrulamak için kullanılır. `\`/reflect` komutu bu modda önce kendi üretimini denetler, ardından risk ve iyileştirme önerileri sunar.
+
+Özetle yeni bir proje kurulumunda Brainstorming → Business Panel → Task Management → Orchestration sırası, mevcut projeyi büyütürken ise Deep Research → Token Efficiency → Introspection kombinasyonu pratik bir yol haritası sağlar.
+
+## Derin Araştırma ve Komut Örnekleri
+
+- `/research "2025 AI trendleri"` → Varsayılan Unified strateji, 3-4 iterative hop.
+- `/research "React Server Components"` (domains: `react.dev,github.com`) → Belirli kaynaklara kısıtlama.
+- `/sc` → Tüm komutları listeler.
+- `/agent security` → Güvenlik mühendisi ajanını aktif eder.
+
+Derin araştırma sistemi, her arama adımını skorlayarak 0.6 altında kalan sonuçları eler, başarılı stratejileri kaydeder ve Tavily, Playwright, Sequential MCP'lerini koordine eder.
+
+## Dokümantasyon ve Katkı Rehberleri
+
+Repo içindeki `docs/` klasörü; kurulum, kullanıcı rehberleri (komutlar, ajanlar, modlar, MCP kuralları) ve geliştirici odaklı teknik mimari belgelerini barındırır. `PLANNING.md`, `TASK.md`, `KNOWLEDGE.md` ve `CONTRIBUTING.md` dosyaları, Claude Code oturumlarına başlangıçta yüklenerek standartların korunmasını sağlar.
+
+<Aside type="tip">
+
+**Çoklu Dil Desteği**
+
+README dosyasının İngilizce, Çince ve Japonca sürümleri mevcuttur (`README.md`, `README-zh.md`, `README-ja.md`). Lokalize rehberlerden faydalanarak ekip içi onboarding sürecini hızlandırabilirsiniz.
+
+</Aside>
+
+SuperClaude_Framework; sürümlere göre hızlı güncellenen komut seti, esnek MCP entegrasyonları ve katkıya açık MIT lisanslı yapısıyla, Claude Code'u kurumsal ölçekte güvenle kullanmak isteyen ekipler için güçlü bir referans mimarisi sunuyor.
+
+## Mevcut Bir Next.js + Supabase Projesinde İzlenecek Yol
+
+Cursor ile kurduğunuz, birden fazla kullanıcı tipi ve dashboard barındıran projeye SuperClaude eklerken aşağıdaki adımlar, hem projeyi doğru şekilde tanıtmanızı hem de hata riskini azaltacak kural setlerini oluşturmanızı sağlar:
+
+1. **Depoyu İndeksleyin**  
+   - `\`/index-repo` veya `\`/index` komutu ile tüm Next.js, Supabase edge functions ve paylaşılan komponentleri taratın.  
+   - Büyük bir depo ise Token Efficiency modu açıkken indeksleyin; bu mod, Claude'un yalnızca önemli dosyaları bağlama almasına yardımcı olur.
+
+2. **Görev Havuzu Oluşturun**  
+   - `\`/task` komutuyla kullanıcı tiplerine göre backlog çıkarın. Örnek: “Eğitmen dashboard’unda rapor grafikleri yavaş açılıyor” ya da “Öğrenci paneline yeni bildirim sistemi eklenecek”.  
+   - Task Management modu aktife getirildiğinde SuperClaude, bu görevleri sprint benzeri bloklara ayırıp önceliklendirebilir.
+
+3. **Kurallar ve Politikalar Belirleyin**  
+   - Proje köküne `PLANNING.md`, `TASK.md`, `KNOWLEDGE.md` dosyalarını ekleyip aşağıdaki başlıklarla doldurun:  
+     - *Teknik Yığın*: Next.js sürümü, Supabase tablosu isimleri, auth mekanizması.  
+     - *Görsel Rehber*: Üç dashboard’un genel tasarım prensipleri ve komponent isimlendirme kuralları.  
+     - *Kodlama Standartları*: ESLint/Prettier ayarları, API hata yönetimi, rol bazlı erişim kontrolü.  
+   - SuperClaude oturumu açıldığında bu dosyaları okur ve AI’nın rastgele kurallar uydurmasını engeller.
+
+4. **Ajan Seçimi ve Mod Kombinasyonu**  
+   - Yeni özellik tasarlarken Brainstorming modunda PM veya Frontend ajanını çağırın (`\`/agent`).  
+   - Supabase güvenlik politikalarını değiştirirken Security ajanını Introspection moduyla çalıştırıp kodun kendi kendini denetlemesini sağlayın.
+
+5. **Komut Akışıyla Geliştirme**  
+   - Her dashboard güncellemesinde şu sıralama kullanışlıdır:  
+     1. `\`/design` → UI/UX akışını güncelle.  
+     2. `\`/implement` (Orchestration modu) → Next.js komponentlerini, Supabase servislerini ve testleri aynı cevapta koordine et.  
+     3. `\`/test` → Supabase edge function’lar ve React bileşenleri için test önerileri al.  
+     4. `\`/reflect` (Introspection modu) → Claude’un yaptığı değişiklikleri doğrulayıp riskleri listele.
+
+6. **Hata Öğrenmesi ve Loglama**  
+   - Hatalar tekrarlandığında `\`/workflow` komutuyla olay sonrası rapor (post-mortem) oluşturun ve `KNOWLEDGE.md` içine ekleyin.  
+   - Böylece SuperClaude gelecekte benzer hataları tespit edip uyarı verebilir.
+
+Bu adımlarla SuperClaude, Next.js + Supabase mimarisini hızla öğrenir, görevleri standartlara göre oluşturur ve sonraki geliştirmelerde tutarlı bir yardımcı haline gelir.
